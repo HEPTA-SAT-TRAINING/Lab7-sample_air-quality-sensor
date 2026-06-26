@@ -20,14 +20,14 @@ Set `kUseMcp3208` in the sketch:
 
 | `kUseMcp3208` | Connection |
 |---------------|------------|
-| `true` | **MCP3208 channel 7** (CS = GP17) |
+| `true` | **MCP3208 channel 6** (CS = GP17) |
 | `false` | **MCU GP28** (ADC2) |
 
 ## Wiring (HEPTA-SAT)
 
 | Sensor | HEPTA-SAT |
 |--------|-----------|
-| Analog output | MCP3208 ch7 **or** GP28 (see above) |
+| Analog output | MCP3208 ch6 **or** GP28 (see above) |
 | MCP3208 CS | GP17 (when using MCP3208) |
 | VCC | 3.3 V payload (`eps.switch_3V3_on()`) |
 | GND | GND |
@@ -49,9 +49,9 @@ Warming up... 1/20 s
 Warming up... 2/20 s
 ...
 Warming up... 20/20 s
-Air quality sensor ready (MCP3208 ch7)
-Air quality: Fresh air
-Air quality: Low pollution
+Air quality sensor ready (MCP3208 ch6)
+Air quality: 512 (Fresh air)
+Air quality: 384 (Low pollution)
 ```
 
 ## Driver

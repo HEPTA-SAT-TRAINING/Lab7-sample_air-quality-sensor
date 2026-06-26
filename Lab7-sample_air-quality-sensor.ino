@@ -5,10 +5,10 @@ HeptaCdh cdh;
 HeptaEps eps;
 AirQualityMp503 air_quality;
 
-// true: MCP3208 channel 7, false: MCU GP28 (ADC2)
+// true: MCP3208 channel 6, false: MCU GP28 (ADC2)
 constexpr bool kUseMcp3208 = true;
 constexpr uint8_t kMcp3208CsPin = 17;
-constexpr uint8_t kMcp3208Channel = 7;
+constexpr uint8_t kMcp3208Channel = 6;
 constexpr uint8_t kDirectAdcPin = 28;
 constexpr uint8_t kWarmupSeconds = 20;
 
@@ -37,7 +37,9 @@ void setup() {
     delay(1000);
   }
 
-  if (!air_quality.begin(kUseMcp3208, kDirectAdcPin, kMcp3208Channel, kMcp3208CsPin)) {
+  // skip_warmup=true: the countdown loop above already waited kWarmupSeconds
+  if (!air_quality.begin(kUseMcp3208, kDirectAdcPin, kMcp3208Channel, kMcp3208CsPin,
+                         3.3f, true)) {
     cdh.println("Air quality sensor init failed");
     while (true) {
       delay(1000);
@@ -45,7 +47,7 @@ void setup() {
   }
 
   if (kUseMcp3208) {
-    cdh.println("Air quality sensor ready (MCP3208 ch7)");
+    cdh.printf("Air quality sensor ready (MCP3208 ch%u)\r\n", kMcp3208Channel);
   } else {
     cdh.println("Air quality sensor ready (GP28)");
   }
@@ -53,8 +55,9 @@ void setup() {
 
 void loop() {
   AirQualityMp503::QualityLevel level = air_quality.slope();
+  uint16_t raw = air_quality.get_raw();
 
-  cdh.printf("Air quality: %s\r\n", quality_to_string(level));
+  cdh.printf("Air quality: %u (%s)\r\n", raw, quality_to_string(level));
 
   delay(1000);
 }
