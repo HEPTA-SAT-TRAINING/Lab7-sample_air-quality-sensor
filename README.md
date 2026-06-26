@@ -36,7 +36,7 @@ Set `kUseMcp3208` in the sketch:
 
 1. Open `Lab7-sample_air-quality-sensor.ino` in the Arduino IDE
 2. Board: **Raspberry Pi Pico**
-3. Check out the `src/` submodule
+3. Check out the `src/` submodule (`git submodule update --init`)
 4. Set `kUseMcp3208` to match your wiring
 5. Compile and upload
 6. Serial monitor at **9600 baud**
