@@ -32,7 +32,7 @@ Set `kUserChannel` in the sketch to match the board USER pin:
 | VCC | 3.3 V payload (`eps.switch_3V3_on()`) |
 | GND | GND |
 
-<img width="1139" height="652" alt="image" src="https://github.com/user-attachments/assets/94f767d8-93dc-4101-abcb-677fde45efc1" />
+<img width="612" height="350" alt="image" src="https://github.com/user-attachments/assets/c621bd2c-79e7-4068-9743-411b756e6c0e" />
 
 ## Build and Upload
 
