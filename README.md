@@ -35,7 +35,7 @@ Set `kUserChannel` in the sketch to match the board USER pin:
 ## Build and Upload
 
 1. Open `Lab7-sample_air-quality-sensor.ino` in the Arduino IDE
-2. Board: **Raspberry Pi Pico**
+2. Board: **Generic RP2350**
 3. Check out the `src/` submodule (`git submodule update --init`)
 4. Set `kUserChannel` to match your wiring (`1`, `2`, or `3`)
 5. Compile and upload
