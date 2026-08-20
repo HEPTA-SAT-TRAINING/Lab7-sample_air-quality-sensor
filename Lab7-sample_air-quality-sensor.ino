@@ -5,10 +5,10 @@ HeptaCdh cdh;
 HeptaEps eps;
 AirQualityMp503 air_quality;
 
-// true: MCP3208 channel 6, false: MCU GP28 (ADC2)
+// true: MCP3208 channel 5 (USER1, V4.1.1), false: MCU GP28 (ADC2)
 constexpr bool kUseMcp3208 = true;
 constexpr uint8_t kMcp3208CsPin = 17;
-constexpr uint8_t kMcp3208Channel = 6;
+constexpr uint8_t kMcp3208Channel = 5;
 constexpr uint8_t kDirectAdcPin = 28;
 constexpr uint8_t kWarmupSeconds = 20;
 
