@@ -32,6 +32,8 @@ Set `kUserChannel` in the sketch to match the board USER pin:
 | VCC | 3.3 V payload (`eps.switch_3V3_on()`) |
 | GND | GND |
 
+<img width="612" height="350" alt="image" src="https://github.com/user-attachments/assets/c621bd2c-79e7-4068-9743-411b756e6c0e" />
+
 ## Build and Upload
 
 1. Open `Lab7-sample_air-quality-sensor.ino` in the Arduino IDE
