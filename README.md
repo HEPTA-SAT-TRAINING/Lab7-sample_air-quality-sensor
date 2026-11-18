@@ -18,13 +18,28 @@ HEPTA-SAT training sample: **Grove Air Quality Sensor v1.3** (Winsen **MP503**).
 
 | Sensor | HEPTA-SAT |
 |--------|-----------|
-| Analog output | `USER1` |
+| SIG (analog output) | **ADC1** (`USER1` in the sketch) |
 | VCC | 3.3 V payload (`eps.switch_3V3_on()`) |
 | GND | GND |
 
-The sketch uses `air_quality.begin_after_warmup(USER1)`. If you connect the signal to `USER2` or `USER3`, change that argument to match. The sketch counts down 20 seconds before calling this method.
+The sketch uses `air_quality.begin_after_warmup(USER1)`. For a different connection, use `USER2` for **ADC2** or `USER3` for **ADC3**. The sketch counts down 20 seconds before calling this method.
 
-<img width="612" height="350" alt="image" src="https://github.com/user-attachments/assets/c621bd2c-79e7-4068-9743-411b756e6c0e" />
+```mermaid
+flowchart LR
+    subgraph sensor["Grove Air Quality"]
+        sig["SIG"]
+        vcc["VCC"]
+        gnd["GND"]
+    end
+    subgraph board["HEPTA-SAT payload board"]
+        adc["ADC1 (USER1)"]
+        power["3.3 V"]
+        ground["GND"]
+    end
+    sig --- adc
+    vcc --- power
+    gnd --- ground
+```
 
 ## Build and Upload
 
@@ -44,7 +59,7 @@ Warming up... 2/20 s
 Warming up... 20/20 s
 Air quality sensor ready
 Air quality: 512 (Fresh air)
-Air quality: 384 (Low pollution)
+Air quality: 800 (Low pollution)
 ```
 
 ## Driver
